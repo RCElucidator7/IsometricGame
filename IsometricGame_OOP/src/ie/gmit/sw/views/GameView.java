@@ -6,6 +6,8 @@ import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
+import ie.gmit.sw.Setup;
+import ie.gmit.sw.SetupImplementor;
 import ie.gmit.sw.models.*;
 import ie.gmit.sw.models.Point;
 
@@ -53,12 +55,13 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	private void init() throws Exception {
-		tiles = loadImages("./resources/images/ground", tiles);
-		objects = loadImages("./resources/images/objects", objects);
-		player = new Sprite("Player 1", new Point(0, 0), loadImages("./resources/images/sprites/default", null));
+		Setup s = new SetupImplementor();
+		tiles = s.loadImages("./resources/images/ground", tiles);
+		objects = s.loadImages("./resources/images/objects", objects);
+		player = new Sprite("Player 1", new Point(0, 0), s.loadImages("./resources/images/sprites/default", null));
 	}
 	
-	//This method breaks the SRP
+	/*//This method breaks the SRP
 	private BufferedImage[] loadImages(String directory, BufferedImage[] img) throws Exception {
 		File dir = new File(directory);
 		File[] files = dir.listFiles();
@@ -69,7 +72,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 			img[i] = ImageIO.read(files[i]);
 		}
 		return img;
-	}
+	}*/
 
 	public void toggleView() {
 		isIsometric = !isIsometric;
