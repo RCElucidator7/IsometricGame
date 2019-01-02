@@ -61,33 +61,9 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		player = new Sprite("Player 1", new Point(0, 0), s.loadImages("./resources/images/sprites/default", null));
 	}
 	
-	/*//This method breaks the SRP
-	private BufferedImage[] loadImages(String directory, BufferedImage[] img) throws Exception {
-		File dir = new File(directory);
-		File[] files = dir.listFiles();
-		Arrays.sort(files, (s, t) -> s.getName().compareTo(t.getName()));
+	private void painter(Graphics2D g2) {
 		
-		img = new BufferedImage[files.length];
-		for (int i = 0; i < files.length; i++) {
-			img[i] = ImageIO.read(files[i]);
-		}
-		return img;
-	}*/
-
-	public void toggleView() {
-		isIsometric = !isIsometric;
-		this.repaint();
-	}
-
-	public void actionPerformed(ActionEvent e) { //This is called each time the timer reaches zero
-		this.repaint();
-	}
-
-	public void paintComponent(Graphics g) { //This method needs to execute quickly...
-		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g;
 		int imageIndex = -1, x1 = 0, y1 = 0;
-		Point point;
 		
 		for (int row = 0; row < matrix.length; row++) {
 			for (int col = 0; col < matrix[row].length; col++) {
@@ -120,6 +96,37 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 				}
 			}
 		}
+		
+	}
+	
+	/*//This method breaks the SRP
+	private BufferedImage[] loadImages(String directory, BufferedImage[] img) throws Exception {
+		File dir = new File(directory);
+		File[] files = dir.listFiles();
+		Arrays.sort(files, (s, t) -> s.getName().compareTo(t.getName()));
+		
+		img = new BufferedImage[files.length];
+		for (int i = 0; i < files.length; i++) {
+			img[i] = ImageIO.read(files[i]);
+		}
+		return img;
+	}*/
+
+	public void toggleView() {
+		isIsometric = !isIsometric;
+		this.repaint();
+	}
+
+	public void actionPerformed(ActionEvent e) { //This is called each time the timer reaches zero
+		this.repaint();
+	}
+
+	public void paintComponent(Graphics g) { //This method needs to execute quickly...
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		Point point;
+		
+		painter(g2);
 		
 		//Paint the player on  the ground
 		point = getIso(player.getPosition().getX(), player.getPosition().getY());

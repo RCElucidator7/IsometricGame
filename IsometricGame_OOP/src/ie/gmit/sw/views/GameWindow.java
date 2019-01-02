@@ -2,23 +2,28 @@ package ie.gmit.sw.views;
 
 import java.awt.*;
 import javax.swing.*;
+
+import com.sun.corba.se.impl.orbutil.closure.Constant;
+
+import ie.gmit.sw.LevelConstants;
+import ie.gmit.sw.builder.LevelBuilder;
 public class GameWindow {
 	/*
 	 * This matrix represents the isometric game model, with each number mapping to an
 	 * image in the images/ground/ directory.
 	 */
 	//Abstract builder factory - Have "Ground builder" call "Builder" etc..
-	private int[][] model = { 
-			{ 1, 0, 0, 0, 0, 0 , 0, 0, 0, 2},
-			{ 0, 1, 0, 0, 0, 0 , 0, 0, 0, 2},
-			{ 0, 0, 2, 0, 0, 0 , 0, 0, 0, 2},
-			{ 0, 0, 0, 1, 0, 0 , 0, 0, 0, 2},
+	/*private int[][] model = { 
+			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
+			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
+			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
+			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
 			{ 2, 2, 2, 2, 1, 0 , 0, 0, 0, 2},
 			{ 3, 3, 3, 3, 1, 1 , 1, 0, 0, 1},
 			{ 5, 5, 5, 5, 3, 3 , 1, 0, 0, 1},
-			{ 4, 4, 4, 4, 3, 3 , 1, 0, 0, 0},
-			{ 4, 4, 4, 4, 5, 3 , 1, 6, 6, 6},
-			{ 4, 4, 4, 4, 4, 3 , 1, 7, 7, 7}
+			{ 4, 4, 4, 4, 5, 5, 5, 5, 3, 0},
+			{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4},
+			{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4}
 	};
 	
 	//This matrix is a representation of where objects (things) in the game are placed
@@ -33,14 +38,14 @@ public class GameWindow {
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 10}
-	};
+	};*/
 	
 	public static GameWindow gameInstance = null;
 	
 	public GameWindow(){
 		try {
-			GameView view = new GameView(model, objects);
-			Dimension d = new Dimension(GameView.DEFAULT_VIEW_SIZE, GameView.DEFAULT_VIEW_SIZE/2);
+			GameView view = new GameView(new LevelBuilder().ground(), new LevelBuilder().things());
+			Dimension d = new Dimension(LevelConstants.DEFAULT_VIEW_SIZE, LevelConstants.DEFAULT_VIEW_SIZE/2);
 			view.setPreferredSize(d);
 			view.setMinimumSize(d);
 			view.setMaximumSize(d);
