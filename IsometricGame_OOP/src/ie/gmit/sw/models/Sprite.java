@@ -18,15 +18,17 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite
 	private int index = 0; //The current image index.
 	private Point position; //The current x, y position
+	private boolean pickup = false;
 	
-	public Sprite(String name, Point p) {
+	public Sprite(String name, Point p, boolean pu) {
 		super();
 		this.name = name;
 		this.position = p;
+		this.pickup = pu;
 	}
 	
-	public Sprite(String name, Point p, BufferedImage[] img) {
-		this(name, p);
+	public Sprite(String name, Point p, boolean pu, BufferedImage[] img) {
+		this(name, p, pu);
 		int row = 0, col = 0;
 		for (int i = 0; i < img.length; i++) {
 			images[row][col] = img[i];
@@ -45,6 +47,10 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 
 	public Point getPosition() {
 		return position;
+	}
+	
+	public boolean getPickup() {
+		return pickup;
 	}
 
 	public BufferedImage getImage() {
@@ -69,6 +75,12 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
     public Direction getDirection() {
         return this.direction;
     }
+    
+    public void pickup() {
+    	if(position.getX() == 5 && position.getY() == 6) {
+    		pickup = true;
+    	}
+    }
 	
 	public void move() { //This method is suspiciously like one I've seen already....
 		step(direction);
@@ -79,32 +91,28 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 				break;
 			}
 			position.setY(position.getY() + 1); //UP
-			System.out.println(getPosition().getX());
-			System.out.println(getPosition().getY());
+			System.out.println(getPickup());
 			break;
 		case 2:
 			if(position.getX() == 0) {
 				break;
 			}
 			position.setX(position.getX() - 1); //DOWN
-			System.out.println(getPosition().getX());
-			System.out.println(getPosition().getY());
+			System.out.println(getPickup());
 			break;
 		case 3:
 			if(position.getX() == 9) {
 				break;
 			}
 			position.setX(position.getX() + 1); //LEFT
-			System.out.println(getPosition().getX());
-			System.out.println(getPosition().getY());
+			System.out.println(getPickup());
 			break;
 		default:
 			if(position.getY() == 0) {
 				break;
 			}
 			position.setY(position.getY() - 1); //RIGHT
-			System.out.println(getPosition().getX());
-			System.out.println(getPosition().getY());
+			System.out.println(getPickup());
 			break;
 		}
 	}

@@ -58,7 +58,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		Setup s = new SetupImplementor();
 		tiles = s.loadImages("./resources/images/ground", tiles);
 		objects = s.loadImages("./resources/images/objects", objects);
-		player = new Sprite("Player 1", new Point(0, 0), s.loadImages("./resources/images/sprites/default", null));
+		player = new Sprite("Player 1", new Point(0, 0), false, s.loadImages("./resources/images/sprites/person", null));
 	}
 	
 	private void painter(Graphics2D g2) {
@@ -128,9 +128,14 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		
 		painter(g2);
 		
-		//Paint the player on  the ground
-		point = getIso(player.getPosition().getX(), player.getPosition().getY());
-		g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
+		if(isIsometric) {
+			point = getIso(player.getPosition().getX(), player.getPosition().getY());
+			g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
+		}
+		else {
+			point = getCart(player.getPosition().getX(), player.getPosition().getY());
+			g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
+		}
 	}
 	
 	//This method breaks the SRP
@@ -149,6 +154,11 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		return new Point(getIsoX(x, y), getIsoY(x, y)); //Could be more efficient...
 	}
 	
+	//This method breaks the SRP
+	private Point getCart(int x, int y) {		
+		return new Point(x*TILE_WIDTH, y*TILE_HEIGHT); //Could be more efficient...
+	}
+	
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			player.setDirection(Direction.RIGHT);
@@ -162,6 +172,12 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 			toggleView();
 		} else if (e.getKeyCode() == KeyEvent.VK_X) {
 			player.move();
+		} else if (e.getKeyCode() == KeyEvent.VK_C) {
+			player.pickup();
+			if(player.getPickup() == true) {
+				Graphics2D g = null;
+				g.drawString("Picked Up", 5, 5);
+			}
 		} else {
 			return;
 		}

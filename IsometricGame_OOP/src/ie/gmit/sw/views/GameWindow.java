@@ -13,7 +13,7 @@ public class GameWindow {
 	 * image in the images/ground/ directory.
 	 */
 	//Abstract builder factory - Have "Ground builder" call "Builder" etc..
-	/*private int[][] model = { 
+	private int[][] model = { 
 			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
 			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
 			{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
@@ -38,13 +38,13 @@ public class GameWindow {
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 10}
-	};*/
+	};
 	
 	public static GameWindow gameInstance = null;
 	
 	public GameWindow(){
 		try {
-			GameView view = new GameView(new LevelBuilder().ground(), new LevelBuilder().things());
+			GameView view = new GameView(model, objects);
 			Dimension d = new Dimension(LevelConstants.DEFAULT_VIEW_SIZE, LevelConstants.DEFAULT_VIEW_SIZE/2);
 			view.setPreferredSize(d);
 			view.setMinimumSize(d);

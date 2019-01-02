@@ -2,8 +2,6 @@ package ie.gmit.sw.builder;
 
 public class LevelBuilder implements Level {
 
-	@Override
-	public int[][] ground() {
 		int[][] grass = { 
 				{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
 				{ 0, 0, 0, 2, 0, 0 , 0, 0, 0, 2},
@@ -16,10 +14,7 @@ public class LevelBuilder implements Level {
 				{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4},
 				{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4}
 		};
-		return grass;
-	}
-
-	public int[][] things() {
+		
 		int[][] things = { 
 				{ 0, 0, 0, 0, 0, 0 , 5, 5, 5, 10},
 				{ 5, 0, 0, 0, 0, 0 , 5, 5, 5, 0},
@@ -32,7 +27,29 @@ public class LevelBuilder implements Level {
 				{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 				{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0}
 		};
-		return things;
+
+	@Override
+	public void setMaterial(int m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int setMaterial() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setThing(int t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int setThing() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
