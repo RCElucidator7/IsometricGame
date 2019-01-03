@@ -18,17 +18,19 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite
 	private int index = 0; //The current image index.
 	private Point position; //The current x, y position
-	private boolean pickup = false;
+	private boolean rowPickup = false;
+	private boolean keyPickup = false;
 	
-	public Sprite(String name, Point p, boolean pu) {
+	public Sprite(String name, Point p, boolean row, boolean key) {
 		super();
 		this.name = name;
 		this.position = p;
-		this.pickup = pu;
+		this.rowPickup = row;
+		this.keyPickup = key;
 	}
 	
-	public Sprite(String name, Point p, boolean pu, BufferedImage[] img) {
-		this(name, p, pu);
+	public Sprite(String name, Point p, boolean pu, boolean key, BufferedImage[] img) {
+		this(name, p, pu, key);
 		int row = 0, col = 0;
 		for (int i = 0; i < img.length; i++) {
 			images[row][col] = img[i];
@@ -50,7 +52,11 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	}
 	
 	public boolean getPickup() {
-		return pickup;
+		return rowPickup;
+	}
+	
+	public boolean getKey() {
+		return keyPickup;
 	}
 
 	public BufferedImage getImage() {
@@ -78,7 +84,10 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
     
     public void pickup() {
     	if(position.getX() == 5 && position.getY() == 6) {
-    		pickup = true;
+    		rowPickup = true;
+    	}
+    	if(position.getX() == 0 && position.getY() == 9) {
+    		keyPickup = true;
     	}
     }
 	

@@ -8,6 +8,7 @@ import javax.swing.Timer;
 
 import ie.gmit.sw.Setup;
 import ie.gmit.sw.SetupImplementor;
+import ie.gmit.sw.builder.LevelBuilder;
 import ie.gmit.sw.models.*;
 import ie.gmit.sw.models.Point;
 
@@ -43,10 +44,14 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	private Timer timer; //Controls the repaint interval.
 	private boolean isIsometric = true; //Toggle between 2D and Isometric (Z key)
 	
+	private LevelBuilder lb = new LevelBuilder();
+	
 	public GameView(int[][] matrix, int[][] things) throws Exception {
 		init();
 		this.matrix = matrix;
 		this.things = things;
+		
+		//this.matrix = lb.setMaterial();
 		
 		setBackground(Color.WHITE);
 		setDoubleBuffered(true); //Each image is buffered twice to avoid tearing / stutter
@@ -58,7 +63,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		Setup s = new SetupImplementor();
 		tiles = s.loadImages("./resources/images/ground", tiles);
 		objects = s.loadImages("./resources/images/objects", objects);
-		player = new Sprite("Player 1", new Point(0, 0), false, s.loadImages("./resources/images/sprites/person", null));
+		player = new Sprite("Player 1", new Point(0, 0), false, false, s.loadImages("./resources/images/sprites/person", null));
 	}
 	
 	private void painter(Graphics2D g2) {
@@ -124,16 +129,34 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) { //This method needs to execute quickly...
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		Point point;
 		
 		painter(g2);
 		
+		paintPlayer(g2, isIsometric);
+		
+		if(player.getPickup() == true) {
+			g2.drawString("Picked Up Row!", 10, 10);
+		}
+		
+		if(player.getKey() == true) {
+			g2.drawString("Picked Up Key", 10, 30);
+		}
+	}
+	
+	private void paintPlayer(Graphics2D g2, boolean isIso) {
+		Point point;
+		PointHandler ph = new Point(0, 0);
+		
 		if(isIsometric) {
-			point = getIso(player.getPosition().getX(), player.getPosition().getY());
+			ph = ph.getPoint(player.getPosition().getX(), player.getPosition().getY(), isIsometric);
+			//System.out.println(ph.toString());
+			point = (Point) ph;
 			g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
 		}
 		else {
-			point = getCart(player.getPosition().getX(), player.getPosition().getY());
+			ph = ph.getPoint(player.getPosition().getX(), player.getPosition().getY(), isIsometric);
+			point = (Point) ph;
+			//point = getCart(player.getPosition().getX(), player.getPosition().getY());
 			g2.drawImage(player.getImage(), point.getX(), point.getY(), null);
 		}
 	}
@@ -149,7 +172,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		return (x + y) * (TILE_HEIGHT/2);
 	}
 	
-	//This method breaks the SRP
+	/*//This method breaks the SRP
 	private Point getIso(int x, int y) {
 		return new Point(getIsoX(x, y), getIsoY(x, y)); //Could be more efficient...
 	}
@@ -157,7 +180,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	//This method breaks the SRP
 	private Point getCart(int x, int y) {		
 		return new Point(x*TILE_WIDTH, y*TILE_HEIGHT); //Could be more efficient...
-	}
+	}*/
 	
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -174,10 +197,6 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 			player.move();
 		} else if (e.getKeyCode() == KeyEvent.VK_C) {
 			player.pickup();
-			if(player.getPickup() == true) {
-				Graphics2D g = null;
-				g.drawString("Picked Up", 5, 5);
-			}
 		} else {
 			return;
 		}

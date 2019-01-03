@@ -42,12 +42,14 @@ public class Point implements PointHandler{
 	}
 	
 	@Override
-	public Point getIso(int x, int y) {
-		return new Point(getIsoX(x, y), getIsoY(x, y)); //Could be more efficient...
+	public Point getPoint(int x, int y, boolean isIsometric) {
+		if(isIsometric == true) {
+			return new Point(getIsoX(x, y), getIsoY(x, y)); //Could be more efficient...
+		}
+		else {
+			return new Point(x*TILE_WIDTH, y*TILE_HEIGHT);
+		}
 	}
 	
-	@Override
-	public Point getCart(int x, int y) {		
-		return new Point(x*TILE_WIDTH, y*TILE_HEIGHT); //Could be more efficient...
-	}
+	//return new Point(x*TILE_WIDTH, y*TILE_HEIGHT); //Could be more efficient...
 }

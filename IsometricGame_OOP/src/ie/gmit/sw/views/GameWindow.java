@@ -28,8 +28,8 @@ public class GameWindow {
 	
 	//This matrix is a representation of where objects (things) in the game are placed
 	private int[][] objects = { 
-			{ 0, 0, 0, 5, 5, 5 , 5, 5, 5, 0},
-			{ 5, 0, 0, 0, 5, 5 , 5, 5, 5, 0},
+			{ 0, 0, 0, 0, 0, 5 , 5, 5, 5, 0},
+			{ 5, 0, 0, 0, 0, 5 , 5, 5, 5, 0},
 			{ 5, 5, 0, 0, 0, 5 , 5, 5, 5, 9},
 			{ 5, 5, 2, 0, 0, 0 , 5, 5, 5, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 5, 5, 0},
@@ -37,7 +37,7 @@ public class GameWindow {
 			{ 0, 0, 0, 0, 0, 3 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
 			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0},
-			{ 0, 0, 0, 0, 0, 0 , 0, 0, 0, 10}
+			{ 1, 0, 0, 0, 0, 0 , 0, 0, 0, 10}
 	};
 	
 	public static GameWindow gameInstance = null;
