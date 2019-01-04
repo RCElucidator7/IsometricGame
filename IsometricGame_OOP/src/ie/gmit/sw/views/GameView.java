@@ -51,7 +51,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		this.matrix = matrix;
 		this.things = things;
 		
-		//this.matrix = lb.setMaterial();
+		this.matrix = lb.setGround();
 		
 		setBackground(Color.WHITE);
 		setDoubleBuffered(true); //Each image is buffered twice to avoid tearing / stutter
@@ -135,7 +135,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		paintPlayer(g2, isIsometric);
 		
 		if(player.getPickup() == true) {
-			g2.drawString("Picked Up Row!", 10, 10);
+			g2.drawString("Picked Up Boots of Water Walking!", 10, 10);
 		}
 		
 		if(player.getKey() == true) {
