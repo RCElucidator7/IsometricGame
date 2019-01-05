@@ -17,14 +17,14 @@ public class Runner {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//callSetup();
 					/* 
 					 * ----------------------------------------
 					 *             Control Keys
 					 * ----------------------------------------
 					 * Use the arrow keys to move the player.
 					 * Move Player: 'X'
-					 * Toggle View: 'Z'		
+					 * Toggle View: 'Z'	
+					 * Toggle Action: 'C'		
 					 * ----------------------------------------
 					 */
 					GameWindow.getIntance(); //Could be done nicer? - done?
@@ -36,11 +36,4 @@ public class Runner {
 			}
 		});
 	}
-	
-	/*public static void callSetup() throws Exception {
-		Setup s = new SetupImplementor();
-		tiles = s.loadImages("./resources/images/ground", tiles);
-		objects = s.loadImages("./resources/images/objects", objects);
-		Sprite player = new Sprite("Player 1", new Point(0, 0), s.loadImages("./resources/images/sprites/default", null));
-	}*/
 }

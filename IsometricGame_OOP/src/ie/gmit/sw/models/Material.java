@@ -20,4 +20,5 @@ public enum Material {
 	public int getMaterial() {
 		return this.mat;
 	}
+	
 }

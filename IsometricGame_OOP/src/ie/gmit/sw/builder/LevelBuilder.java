@@ -12,10 +12,11 @@ public class LevelBuilder implements Level {
 
 		public int[][] setGround() {
 			// TODO Auto-generated method stub
-			setThing(Material.dirt);
+			setDirt(Material.dirt);
 			setStone(Material.stone);
 			setSea(Material.sea);
 			setSand(Material.sand);
+			setMossStone(Material.mossStone);
 			return grass;
 		}
 
@@ -27,28 +28,30 @@ public class LevelBuilder implements Level {
 			this.material = material;
 		}
 
-		public void setThing(Material mat) {
+		private void setDirt(Material mat) {
 			// TODO Auto-generated method stub
-			setMaterial(mat);
-			for(int i = 0; i < 10; i++) {
-				grass[i][i] = mat.getMaterial();
-			}
+			grass[1][1] = mat.getMaterial();
+			grass[1][2] = mat.getMaterial();
+			grass[1][3] = mat.getMaterial();
+			grass[2][3] = mat.getMaterial();
+			grass[3][3] = mat.getMaterial();
 		}
 		
-		public void setStone(Material mat) {
+		private void setStone(Material mat) {
 			// TODO Auto-generated method stub
 			setMaterial(mat);
 			for(int i = 0; i < 8; i++) {
 				if(i > 4) {
-					grass[i][5] = mat.getMaterial();
+					grass[i-1][5] = mat.getMaterial();
 				}
 				else {
 					grass[i][4] = mat.getMaterial();
+					grass[0][i] = mat.getMaterial();
 				}
 			}
 		}
 		
-		public void setSea(Material mat) {
+		private void setSea(Material mat) {
 			// TODO Auto-generated method stub
 			setMaterial(mat);
 			for(int i = 0; i < 8; i++) {
@@ -57,11 +60,19 @@ public class LevelBuilder implements Level {
 			}
 		}
 		
-		public void setSand(Material mat) {
+		private void setSand(Material mat) {
 			// TODO Auto-generated method stub
 			setMaterial(mat);
 			for(int i = 0; i < 8; i++) {
 				grass[7][i] = mat.getMaterial();
+			}
+		}
+		
+		private void setMossStone(Material mat) {
+			// TODO Auto-generated method stub
+			setMaterial(mat);
+			for(int i = 0; i < 6; i++) {
+				grass[i][9] = mat.getMaterial();
 			}
 		}
 

@@ -12,16 +12,18 @@ package ie.gmit.sw.models;
  */
 
 import java.awt.image.*;
-public class Sprite { //Sprite belongs in some sort of hierarchy....
+public class Sprite implements Character { //Sprite belongs in some sort of hierarchy....
 	private String name; //The name of the sprite
 	private BufferedImage[][] images = new BufferedImage[4][3]; //The images used in the animation 
 	private Direction direction = Direction.DOWN; //The current orientation of the sprite
 	private int index = 0; //The current image index.
-	private Point position; //The current x, y position
+	private PointHandler position; //The current x, y position
 	private boolean rowPickup = false;
 	private boolean keyPickup = false;
+	private boolean signRead = false;
+	private boolean checkWater = false;
 	
-	public Sprite(String name, Point p, boolean row, boolean key) {
+	public Sprite(String name, PointHandler p, boolean row, boolean key) {
 		super();
 		this.name = name;
 		this.position = p;
@@ -29,7 +31,7 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 		this.keyPickup = key;
 	}
 	
-	public Sprite(String name, Point p, boolean pu, boolean key, BufferedImage[] img) {
+	public Sprite(String name, PointHandler p, boolean pu, boolean key, BufferedImage[] img) {
 		this(name, p, pu, key);
 		int row = 0, col = 0;
 		for (int i = 0; i < img.length; i++) {
@@ -47,7 +49,7 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 		return name;
 	}
 
-	public Point getPosition() {
+	public PointHandler getPosition() {
 		return position;
 	}
 	
@@ -58,11 +60,16 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	public boolean getKey() {
 		return keyPickup;
 	}
+	
+	public boolean getSign() {
+		return signRead;
+	}
 
 	public BufferedImage getImage() {
 		return images[direction.getOrientation()][index];
 	}
 	
+	@Override
 	public BufferedImage step(Direction d) {
 		setDirection(d);
 		if (index < images[direction.getOrientation()].length - 1) {
@@ -82,6 +89,7 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
         return this.direction;
     }
     
+    @Override
     public void pickup() {
     	if(position.getX() == 5 && position.getY() == 6) {
     		rowPickup = true;
@@ -89,14 +97,22 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
     	if(position.getX() == 0 && position.getY() == 9) {
     		keyPickup = true;
     	}
+    	if(position.getX() == 2 && position.getY() == 3) {
+    		signRead = true;
+    	}
     }
 	
+    @Override
 	public void move() { //This method is suspiciously like one I've seen already....
 		step(direction);
 		
 		switch(direction.getOrientation()) {
 		case 1:
 			if(position.getY() == 9) {
+				break;
+			}
+			checkWater();
+			if(checkWater == true) {
 				break;
 			}
 			position.setY(position.getY() + 1); //UP
@@ -106,11 +122,17 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 			if(position.getX() == 0) {
 				break;
 			}
+			if(checkWater == true) {
+				break;
+			}
 			position.setX(position.getX() - 1); //DOWN
 			System.out.println(getPickup());
 			break;
 		case 3:
 			if(position.getX() == 9) {
+				break;
+			}
+			if(checkWater == true) {
 				break;
 			}
 			position.setX(position.getX() + 1); //LEFT
@@ -120,9 +142,23 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 			if(position.getY() == 0) {
 				break;
 			}
+			if(checkWater == true) {
+				break;
+			}
 			position.setY(position.getY() - 1); //RIGHT
 			System.out.println(getPickup());
 			break;
+		}
+	}
+	
+	private void checkWater() {
+		for(int i = 0; i < 9; i++) {
+			if(position.getX() + 1 == i && position.getY() + 1 == 10) {
+				checkWater = true;
+			}
+			if(position.getX() + 1 == i && position.getY() + 1 == 9) {
+				checkWater = true;
+			}
 		}
 	}
 }
