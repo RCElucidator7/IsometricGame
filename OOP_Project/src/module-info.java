@@ -6,6 +6,8 @@
  *
  */
 module gmit.software {
-	requires java.desktop;
+	requires java.base;
+	requires transitive java.desktop;
 	exports ie.gmit.sw;
+	opens ie.gmit.sw;
 }
