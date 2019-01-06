@@ -31,9 +31,7 @@ and pressing "X" to advance a tile. Some tiles are inexcessable until a certain 
 ## Patterns implemented
 
 Singleton:
-I used the singleton pattern when initalising the setup for the game by loading in the images. The classes I used this in 
-are the Setup interface and SetupImplementor class. (I have called these classes in the init() method that was used in the 
-GameView file. This may be the incorrect place to have it but I couldn't find another solution at the time).
+I used the singleton pattern when calling the GameWindow class by using a method that gets an instance of the class.
 
 Builder:
 I used the builder pattern for creating the array values for the ground material and items on the map. Here I used a single 
