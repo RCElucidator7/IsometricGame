@@ -22,13 +22,13 @@ There  are  obvious  uses  for factories, builders,  flyweights, observers and p
 
 • Use the Swing MVC framework to write custom sprites and game objects.
 
-##Game Objective
+## Game Objective
 
 The objective of this game is to explore the world look for a way out. This can be done by interacting with items in the 
 world until you obtain a key. The player is free to explore the world by using the arrow keys to determine a direction 
 and pressing "X" to advance a tile. Some tiles are inexcessable until a certain item is found so be careful.
 
-##Patterns implemented
+## Patterns implemented
 
 Singleton:
 I used the singleton pattern when initalising the setup for the game by loading in the images. The classes I used this in 
@@ -43,7 +43,7 @@ Factory/Flyweight:
 I used this pattern with the character sprite. I had a Character interface, a sprite class which implemented this interface 
 and a SpriteFactory class.
 
-##Gameplay features
+## Gameplay features
 These features were not present in the starter file and were implemented myself:
 
 
