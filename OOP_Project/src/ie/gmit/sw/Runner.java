@@ -3,8 +3,6 @@ package ie.gmit.sw;
 
 import javax.swing.JOptionPane;
 
-import ie.gmit.sw.views.GameWindow;
-
 /**
  * Runner class that gets an instance of the game window class and runs the game.
  * @author Ryan Conway

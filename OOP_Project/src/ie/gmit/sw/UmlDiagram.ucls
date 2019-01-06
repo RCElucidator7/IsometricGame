@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <enumeration id="1" language="java" name="ie.gmit.sw.enums.Material" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/enums/Material.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="1" language="java" name="ie.gmit.sw.Material" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Material.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="261" width="123" x="2433" y="705"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="2" language="java" name="ie.gmit.sw.views.GameWindow" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/views/GameWindow.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="ie.gmit.sw.GameWindow" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/GameWindow.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="155" x="821" y="206"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="3" language="java" name="ie.gmit.sw.enums.Direction" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/enums/Direction.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="3" language="java" name="ie.gmit.sw.Direction" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Direction.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="189" width="119" x="1847" y="1312"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="4" language="java" name="ie.gmit.sw.enums.Items" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/enums/Items.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="4" language="java" name="ie.gmit.sw.Items" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Items.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2355" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <interface id="5" language="java" name="ie.gmit.sw.interfaces.Level" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/interfaces/Level.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="5" language="java" name="ie.gmit.sw.Level" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Level.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2214" y="746"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="6" language="java" name="ie.gmit.sw.sprites.Sprite" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/sprites/Sprite.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="ie.gmit.sw.Sprite" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Sprite.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="567" width="232" x="1913" y="705"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="7" language="java" name="ie.gmit.sw.interfaces.Setup" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/interfaces/Setup.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="7" language="java" name="ie.gmit.sw.Setup" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Setup.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="276" x="505" y="705"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="8" language="java" name="ie.gmit.sw.setup.SetupImplementor" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/setup/SetupImplementor.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="ie.gmit.sw.SetupImplementor" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/SetupImplementor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="276" x="505" y="206"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="ie.gmit.sw.builders.ObjectBuilder" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/builders/ObjectBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="ie.gmit.sw.ObjectBuilder" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/ObjectBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2349" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="ie.gmit.sw.painter.LevelPainter" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/painter/LevelPainter.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="ie.gmit.sw.LevelPainter" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/LevelPainter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="189" width="403" x="1026" y="206"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="ie.gmit.sw.sprites.SpriteFactory" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/sprites/SpriteFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="ie.gmit.sw.SpriteFactory" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/SpriteFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="298" x="1669" y="206"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="ie.gmit.sw.views.GameView" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/views/GameView.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="ie.gmit.sw.GameView" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/GameView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2121" y="438"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="14" language="java" name="ie.gmit.sw.interfaces.Quest" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/interfaces/Quest.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="14" language="java" name="ie.gmit.sw.Quest" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Quest.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="243" width="150" x="2006" y="1312"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="15" language="java" name="ie.gmit.sw.interfaces.Point" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/interfaces/Point.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="15" language="java" name="ie.gmit.sw.Point" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Point.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="201" x="1606" y="1595"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -136,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="16" language="java" name="ie.gmit.sw.handlerss.PointHandler" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/handlerss/PointHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="ie.gmit.sw.PointHandler" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/PointHandler.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="243" width="201" x="1606" y="1312"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -145,8 +145,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="17" language="java" name="ie.gmit.sw.interfaces.Character" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/interfaces/Character.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="17" language="java" name="ie.gmit.sw.Character" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/Character.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="171" x="2196" y="1312"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -154,8 +154,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="18" language="java" name="ie.gmit.sw.builders.LevelBuilder" project="OOP_Project" 
-    file="/OOP_Project/src/ie/gmit/sw/builders/LevelBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="ie.gmit.sw.LevelBuilder" project="OOP_Project" 
+    file="/OOP_Project/src/ie/gmit/sw/LevelBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="243" width="163" x="2433" y="206"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
